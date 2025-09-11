@@ -268,6 +268,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Diagrama de Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao-das-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição das Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacoes-entre-as-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relações entre as Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-para-o-diagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link para o Diagrama
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -490,6 +532,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Diagrama de Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao-das-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição das Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacoes-entre-as-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relações entre as Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-para-o-diagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link para o Diagrama
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -511,8 +595,92 @@
   <h1>Modelagem</h1>
 
 <h2 id="diagrama-de-classes">Diagrama de Classes</h2>
+<p>Este diagrama de classes UML representa a estrutura de dados e as relações entre as entidades principais do sistema "Estadia Já". Ele detalha as classes, atributos e métodos, oferecendo uma visão clara de como os objetos se interagem no sistema.</p>
 <p><img alt="Diagrama UML" src="images/diagramaUML.png" /></p>
-<p><a href="https://lucid.app/lucidchart/b7cc4921-8546-4736-9e75-fded6500042b/edit?viewport_loc=-944%2C9%2C3777%2C1509%2C0_0&amp;invitationId=inv_4f0bb6e0-f0f3-484e-ae32-f31afa6f854d">LINK</a></p>
+<h3 id="descricao-das-classes">Descrição das Classes</h3>
+<p>A seguir, uma breve descrição de cada classe no diagrama:</p>
+<ul>
+<li>
+<p><strong>USUARIO:</strong> Representa a classe mãe dos meus tipos de usuários.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>idUsuario</code>, <code>nome</code>, <code>email</code>, <code>cpf</code>, <code>telefone</code>, <code>senha</code>.</li>
+<li><strong>Métodos:</strong> <code>cadastroUsuario()</code>, <code>deletarUsuario()</code>, <code>atualizarUsuario()</code>, <code>loginUsuario()</code>, <code>logoutUsuario()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>CLIENTE:</strong> Representa os usuário que  busca e aluga imóveis.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>reservas</code>, <code>avaliacao</code>, <code>avaliacaoCliente</code>, <code>pagamento</code>.</li>
+<li><strong>Métodos:</strong> <code>visualizarReservas()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>PROPRIETARIO:</strong> Representa os usuário disponibiliza imóveis para aluguel.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>imovel</code>, <code>valorRecebido</code>.</li>
+<li><strong>Métodos:</strong> <code>visualizarValorRecebido()</code>, <code>visualizarImoveis()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>RESERVA:</strong> Gerencia as reservas de imóveis feitas pelos clientes.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>idReserva</code>, <code>dataInicio</code>, <code>dataFim</code>, <code>pagamento</code>.</li>
+<li><strong>Métodos:</strong> <code>realizarReserva()</code>, <code>atualizarReserva()</code>, <code>cancelarReserva()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>PAGAMENTO:</strong> Detalha a transação financeira de uma reserva.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>idPagamento</code>, <code>valor</code>, <code>dataPagamento</code>.</li>
+<li><strong>Métodos:</strong> <code>realizaPagamento()</code>, <code>atualizaValorRacebidoProprietario()</code>, <code>acompanharPagamento()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>IMOVEL:</strong> Representa as propriedades disponíveis para aluguel.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>idImovel</code>, <code>tipo</code>, <code>enderecao</code>, <code>descricao</code>, <code>quantidadeQuartos</code>, <code>quantidadeSuites</code>,<code>garagemm</code>, <code>quantidadeBaneiros</code>,<code>quantidadeSalas</code>,<code>areaExterna</code>,<code>piscina</code>, <code>churrasqueira</code>, <code>cidade</code>, <code>reserva</code>, <code>valor</code>, <code>avaliacao</code>.</li>
+<li><strong>Métodos:</strong> <code>cadastrarImovel()</code>, <code>atualizarImovel()</code>, <code>deletarImovel()</code>, <code>listarImoveis()</code>, <code>pesquisarImovel()</code>, <code>verDisponibilidade()</code>, <code>visualizarDetalhes()``visualizarAvaliacoes()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>AVALIACAO:</strong> Representa as avaliações dos imóveis ou do cliente.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>idAvaliacao</code>, <code>cliente</code>, <code>proprietario</code>, <code>nota</code>, <code>comentario</code>, <code>dataAvaliacao</code>.</li>
+<li><strong>Métodos:</strong> <code>realizarAvaliacao()</code>, <code>removerAvaliacao()</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="relacoes-entre-as-classes">Relações entre as Classes</h3>
+<ul>
+<li><strong>CLIENTE e RESERVA</strong>: Um cliente pode ter múltiplas reservas, mas cada reserva pertence a um único cliente (relação de 1 para N).</li>
+<li><strong>RESERVA e PAGAMENTO</strong>: Cada reserva tem um e somente um pagamento associado (relação de 1 para 1).</li>
+<li><strong>PROPRIETARIO e IMOVEL</strong>: Um proprietário pode ter muitos imóveis, e cada imóvel pertence a um proprietário (relação de 1 para N).</li>
+<li><strong>PROPRIETARIO e AVALIACAO</strong>: Um proprietário pode faze múltiplas avaliações, mas cada avaliação é feitas por um proprietario(relação de 1 para N).</li>
+<li><strong>IMÓVEL e RESERVA</strong>: Um imóvel pode ser objeto de várias reservas, e cada reserva se refere a um único imóvel (relação de 1 para N).</li>
+<li><strong>CLIENTE e AVALIACAO</strong>: Um cliente pode fazer múltiplas avaliações, mas cada avaliação é feita por um único cliente (relação de 1 para N).</li>
+<li><strong>AVALIACAO e CLIENTE</strong>: Uma avaliação pertence a um cliente, mas um cliente pode ter várias avaliações (relação de 1 para N).</li>
+<li><strong>IMÓVEL e AVALIACAO</strong>: Um imóvel pode receber múltiplas avaliações, mas cada avaliação se refere a um único imóvel (relação de 1 para N).</li>
+</ul>
+<h3 id="link-para-o-diagrama">Link para o Diagrama</h3>
+<p>Você pode acessar e editar este diagrama de classes diretamente no Lucidchart através do link abaixo:</p>
+<p><a href="https://lucid.app/lucidchart/b7cc4921-8546-4736-9e75-fded6500042b/edit?viewport_loc=-944%2C9%2C3777%2C1509%2C0_0&amp;invitationId=inv_4f0bb6e0-f0f3-484e-ae32-f31afa6f854d">Diagrama de CLasses no LucidChart</a></p>
+<h3 id="historico-de-commits">Histórico de Commits</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">11/09/2025</td>
+<td style="text-align: left;"><strong>feat</strong></td>
+<td style="text-align: left;">Adiciona o diagrama de classes e a sua descrição</td>
+</tr>
+</tbody>
+</table>
 
 
 
