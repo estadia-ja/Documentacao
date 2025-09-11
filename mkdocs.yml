@@ -1,8 +1,14 @@
-site_name: My Docs
+site_name: Estadia Já
 theme:
   name: material
 
-nav: 
-  - Home: index.md
-  - teste: teste.md
-  
+nav:
+  - 'Início': 'index.md'
+  - 'Modelagem': 'diagramas/index.md'
+  - 'Arquitetura': 'arquitetura/index.md'
+  - 'Banco de Dados': 'banco-de-dados/index.md'
+  - 'Desenvolvimento':
+    - 'Visão Geral': 'desenvolvimento/index.md'
+    - 'Backend': 'desenvolvimento/backend/index.md'
+    - 'Frontend': 'desenvolvimento/frontend/index.md'
+    - 'Docker': 'desenvolvimento/docker/index.md'
