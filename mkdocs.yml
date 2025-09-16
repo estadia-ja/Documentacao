@@ -4,6 +4,7 @@ theme:
 
 nav:
   - 'Início': 'index.md'
+  - 'Backlog': 'backlog/index.md'
   - 'Modelagem': 'diagramas/index.md'
   - 'Arquitetura': 'arquitetura/index.md'
   - 'Banco de Dados': 'banco-de-dados/index.md'
