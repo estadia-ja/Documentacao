@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#camadas" class="md-skip">
+        <a href="#documentacao-da-arquitetura-do-backend" class="md-skip">
           Skip to content
         </a>
       
@@ -216,6 +216,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backlog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../diagramas/" class="md-nav__link">
         
   
@@ -243,6 +265,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -276,6 +300,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -284,9 +310,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#camadas" class="md-nav__link">
+  <a href="#1-estrutura-das-camadas-de-dominio-baseada-em-mvc" class="md-nav__link">
     <span class="md-ellipsis">
-      camadas
+      1. Estrutura das Camadas de Domínio (Baseada em MVC)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-estrutura-de-pastas-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Estrutura de Pastas do Projeto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fluxo-de-dados-request-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Fluxo de Dados (Request-Response)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
     </span>
   </a>
   
@@ -337,10 +390,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -353,8 +406,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Desenvolvimento
           </label>
@@ -476,6 +529,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -484,9 +539,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#camadas" class="md-nav__link">
+  <a href="#1-estrutura-das-camadas-de-dominio-baseada-em-mvc" class="md-nav__link">
     <span class="md-ellipsis">
-      camadas
+      1. Estrutura das Camadas de Domínio (Baseada em MVC)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-estrutura-de-pastas-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Estrutura de Pastas do Projeto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fluxo-de-dados-request-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Fluxo de Dados (Request-Response)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
     </span>
   </a>
   
@@ -508,9 +590,90 @@
 
 
 
-  <h1>Arquitetura</h1>
-
-<h2 id="camadas">camadas</h2>
+<h1 id="documentacao-da-arquitetura-do-backend">Documentação da Arquitetura do Backend</h1>
+<p>Nossa arquitetura de backend é baseada em um modelo <strong>orientado a domínios de negócio</strong>. Essa abordagem divide a aplicação em módulos, onde cada módulo é uma <strong>camada de domínio</strong> que encapsula toda a lógica e dados de uma funcionalidade específica (como <code>user</code>, <code>produto</code>, <code>pagamento</code>). Dentro de cada domínio, aplicamos o padrão <strong>MVC (Model-View-Controller)</strong> para organizar o código.</p>
+<p>Essa escolha garante a <strong>separação de responsabilidades</strong>, <strong>manutenção simplificada</strong> e a preparação ideal para uma futura migração para <strong>microsserviços</strong>.</p>
+<hr />
+<h3 id="1-estrutura-das-camadas-de-dominio-baseada-em-mvc">1. Estrutura das Camadas de Domínio (Baseada em MVC)</h3>
+<p>Cada domínio de negócio atua como uma <strong>camada modular</strong> que contém toda a lógica necessária para sua funcionalidade. A organização interna de cada domínio segue o padrão MVC, com responsabilidades bem definidas:</p>
+<ul>
+<li>
+<p><strong>Camada de Apresentação (<code>routes.js</code>)</strong>:</p>
+<ul>
+<li><strong>Função</strong>: Responsável por receber as requisições HTTP e atuar como o ponto de entrada da API.</li>
+<li><strong>Responsabilidade</strong>: Define os endpoints (por exemplo, <code>POST /users</code>) e direciona as requisições para o <code>Controller</code> do domínio.</li>
+</ul>
+</li>
+<li>
+<p><strong>Camada de Lógica de Negócio (<code>controller.js</code> e <code>service.js</code>)</strong>:</p>
+<ul>
+<li><strong>Função</strong>: Contém a lógica central da aplicação e orquestra as operações.</li>
+<li><strong>Responsabilidade</strong>: O <strong>Controller</strong> recebe as requisições da camada de apresentação e chama o <strong>Service</strong>, que por sua vez executa as regras de negócio, validações e coordenação de ações.</li>
+</ul>
+</li>
+<li>
+<p><strong>Camada de Acesso a Dados (<code>model.js</code>)</strong>:</p>
+<ul>
+<li><strong>Função</strong>: Interage diretamente com o banco de dados.</li>
+<li><strong>Responsabilidade</strong>: O <strong>Model</strong> lida com a entidade e utiliza o Prisma para realizar operações de <strong>CRUD</strong> (Criar, Ler, Atualizar, Deletar), garantindo a integridade dos dados.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="2-estrutura-de-pastas-do-projeto">2. Estrutura de Pastas do Projeto</h3>
+<p>A estrutura de pastas reflete a arquitetura de domínio e ajuda a manter a organização e a escalabilidade do projeto.</p>
+<pre><code class="language-plaintext">    src/
+    ├── middlewares/
+    │   └── validation.js
+    ├── user/
+    │   ├── controller.js
+    │   ├── model.js
+    │   ├── routes.js
+    │   └── service.js
+    ├── validations/
+    │   └── userValidation.js
+    ├── database.js
+    ├── index.js
+    └── swagger.js
+</code></pre>
+<ul>
+<li><strong><code>src/</code></strong>: Diretório principal que contém todo o código fonte da aplicação.</li>
+<li><strong><code>src/user/</code></strong>: Representa um <strong>domínio de negócio</strong>. Essa estrutura será replicada para cada nova entidade, como <code>src/product/</code>, <code>src/payment/</code>, etc.</li>
+<li><strong><code>src/middlewares/</code></strong>: Armazena middlewares genéricos que podem ser aplicados em diversas rotas, como middlewares de autenticação ou de logs.</li>
+<li><strong><code>src/validations/</code></strong>: Contém as regras de validação específicas para cada entidade, garantindo que os dados que chegam ao Service estejam corretos.</li>
+<li><strong><code>database.js</code></strong>: Isola a configuração e a conexão com o banco de dados, facilitando a troca de provedores de banco de dados no futuro.</li>
+<li><strong><code>index.js</code></strong>: O ponto de entrada da aplicação.</li>
+<li><strong><code>swagger.js</code></strong>: Arquivo de configuração para a documentação da API (Swagger/OpenAPI).</li>
+</ul>
+<hr />
+<h3 id="3-fluxo-de-dados-request-response">3. Fluxo de Dados (Request-Response)</h3>
+<p>O fluxo de uma requisição HTTP dentro de um domínio segue a seguinte sequência:</p>
+<ol>
+<li>A requisição chega ao arquivo de <strong>rotas</strong> (<code>routes.js</code>) na <strong>Camada de Apresentação</strong>.</li>
+<li>A rota a direciona para o <strong>Controller</strong> (<code>controller.js</code>).</li>
+<li>O <code>Controller</code> delega a lógica para o <strong>Service</strong> (<code>service.js</code>) na <strong>Camada de Lógica de Negócio</strong>.</li>
+<li>O <code>Service</code> interage com o <strong>Model</strong> (<code>model.js</code>) na <strong>Camada de Acesso a Dados</strong>.</li>
+<li>O <code>Model</code> usa o <strong>Prisma</strong> para a comunicação com o banco de dados.</li>
+<li>O resultado é retornado do <code>Model</code> para o <code>Service</code>, depois para o <code>Controller</code>, que formata a resposta e a envia de volta ao cliente.</li>
+</ol>
+<hr />
+<h3 id="historico-de-commits">Histórico de Commits</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">22/09/2025</td>
+<td style="text-align: left;"><strong>feat</strong></td>
+<td style="text-align: left;">Adiciona a documentação da arquitetuta que o Banckend está usando</td>
+</tr>
+</tbody>
+</table>
 
 
 
