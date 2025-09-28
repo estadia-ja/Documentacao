@@ -36,7 +36,11 @@ A estrutura de pastas reflete a arquitetura de domínio e ajuda a manter a organ
     │   ├── controller.js
     │   ├── model.js
     │   ├── routes.js
-    │   └── service.js
+    │   ├── service.js
+    │   └── test/
+    │   │   ├── user.controller.test.js
+    │   │   ├── user.model.test.js
+    │   │   └── user.service.test.js
     ├── validations/
     │   └── userValidation.js
     ├── database.js
