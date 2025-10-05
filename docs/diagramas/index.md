@@ -13,7 +13,7 @@ A seguir, uma breve descrição de cada classe no diagrama:
     * **Métodos:** `cadastroUsuario()`, `deletarUsuario()`, `atualizarUsuario()`, `loginUsuario()`, `logoutUsuario()`.
 
 * **CLIENTE:** Representa os usuário que  busca e aluga imóveis.
-    * **Atributos:** `reservas`, `avaliacao`, `avaliacaoCliente`, `pagamento`.
+    * **Atributos:** `reservas`.
     * **Métodos:** `visualizarReservas()`.
 
 * **PROPRIETARIO:** Representa os usuário disponibiliza imóveis para aluguel.
@@ -21,31 +21,33 @@ A seguir, uma breve descrição de cada classe no diagrama:
     * **Métodos:** `visualizarValorRecebido()`, `visualizarImoveis()`.
 
 * **RESERVA:** Gerencia as reservas de imóveis feitas pelos clientes.
-    * **Atributos:** `idReserva`, `dataInicio`, `dataFim`, `pagamento`.
+    * **Atributos:** `idReserva`, `dataInicio`,`imovel`, `cliente`, `dataFim`, `pagamento`.
     * **Métodos:** `realizarReserva()`, `atualizarReserva()`, `cancelarReserva()`.
 
 * **PAGAMENTO:** Detalha a transação financeira de uma reserva.
     * **Atributos:** `idPagamento`, `valor`, `dataPagamento`.
-    * **Métodos:** `realizaPagamento()`, `atualizaValorRacebidoProprietario()`, `acompanharPagamento()`.
+    * **Métodos:** `realizaPagamento()`, `acompanharPagamento()`.
 
 * **IMOVEL:** Representa as propriedades disponíveis para aluguel.
-    * **Atributos:** `idImovel`, `tipo`, `enderecao`, `descricao`, `quantidadeQuartos`, `quantidadeSuites`,`garagemm`, `quantidadeBaneiros`,`quantidadeSalas`,`areaExterna`,`piscina`, `churrasqueira`, `cidade`, `reserva`, `valor`, `avaliacao`.
+    * **Atributos:** `idImovel`, `tipo`, `enderecao`, `descricao`, `quantidadeQuartos`, `quantidadeSuites`,`garagemm`, `quantidadeBaneiros`,`quantidadeSalas`,`areaExterna`,`piscina`, `churrasqueira`, `cidade`, `reserva`, `valor`.
     * **Métodos:** `cadastrarImovel()`, `atualizarImovel()`, `deletarImovel()`, `listarImoveis()`, `pesquisarImovel()`, `verDisponibilidade()`, `visualizarDetalhes()``visualizarAvaliacoes()`.
 
-* **AVALIACAO:** Representa as avaliações dos imóveis ou do cliente.
-    * **Atributos:** `idAvaliacao`, `cliente`, `proprietario`, `nota`, `comentario`, `dataAvaliacao`.
+* **AVALIACAOCLIENTE:** Representa as avaliações dos imóveis.
+    * **Atributos:** `idAvaliacaoImovel`, `cliente`, `imovel`, `nota`, `comentario`, `dataAvaliacao`.
+    * **Métodos:** `realizarAvaliacao()`, `removerAvaliacao()`.
+
+* **AVALIACAOIMOVEL:** Representa as avaliações do cliente.
+    * **Atributos:** `idAvaliacaoCliente`, `cliente`, `imovel`, `nota`, `comentario`, `dataAvaliacao`.
     * **Métodos:** `realizarAvaliacao()`, `removerAvaliacao()`.
 
 ### Relações entre as Classes
 
 * **CLIENTE e RESERVA**: Um cliente pode ter múltiplas reservas, mas cada reserva pertence a um único cliente (relação de 1 para N).
 * **RESERVA e PAGAMENTO**: Cada reserva tem um e somente um pagamento associado (relação de 1 para 1).
-* **PROPRIETARIO e IMOVEL**: Um proprietário pode ter muitos imóveis, e cada imóvel pertence a um proprietário (relação de 1 para N).
-* **PROPRIETARIO e AVALIACAO**: Um proprietário pode faze múltiplas avaliações, mas cada avaliação é feitas por um proprietario(relação de 1 para N).
+* **PROPRIETARIO e IMOVEL**: Um proprietário pode ter muitos imóveis, e cada imóvel pertence a um proprietário (relação de 1 para N).avaliações, mas cada avaliação é feitas por um proprietario(relação de 1 para N).
 * **IMÓVEL e RESERVA**: Um imóvel pode ser objeto de várias reservas, e cada reserva se refere a um único imóvel (relação de 1 para N).
-* **CLIENTE e AVALIACAO**: Um cliente pode fazer múltiplas avaliações, mas cada avaliação é feita por um único cliente (relação de 1 para N).
-* **AVALIACAO e CLIENTE**: Uma avaliação pertence a um cliente, mas um cliente pode ter várias avaliações (relação de 1 para N).
-* **IMÓVEL e AVALIACAO**: Um imóvel pode receber múltiplas avaliações, mas cada avaliação se refere a um único imóvel (relação de 1 para N).
+* **RESERVA e AVALIACAOIMOVEL**: Uma reserva pode ser avaliada uma vez e uma avaliação se refere a uma reserva.
+* **RESERVA e AVALIACAOCLIENTE**: Uma reserva pode ser avaliada uma vez e uma avaliação se refere a uma reserva.
 
 ### Link para o Diagrama
 
@@ -59,4 +61,5 @@ Você pode acessar e editar este diagrama de classes diretamente no Lucidchart a
 |    Data    |   Tipo   |                     Descrição                    |
 | :--------- | :------- | :----------------------------------------------- |
 | 11/09/2025 | **feat** | Adiciona o diagrama de classes e a sua descrição |
+| 04/10/2025 | **fix** | Corrige as relações entre as classes do diagrama de classes |
 
