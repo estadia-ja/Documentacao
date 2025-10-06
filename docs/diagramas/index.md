@@ -29,7 +29,7 @@ A seguir, uma breve descrição de cada classe no diagrama:
     * **Métodos:** `realizaPagamento()`, `acompanharPagamento()`.
 
 * **IMOVEL:** Representa as propriedades disponíveis para aluguel.
-    * **Atributos:** `idImovel`, `tipo`, `enderecao`, `descricao`, `quantidadeQuartos`, `quantidadeSuites`,`garagemm`, `quantidadeBaneiros`,`quantidadeSalas`,`areaExterna`,`piscina`, `churrasqueira`, `cidade`, `reserva`, `valor`.
+    * **Atributos:** `idImovel`, `tipo`, `enderecao`, `descricao`, `quantidadeQuartos`, `quantidadeSuites`,`garagemm`, `quantidadeBanheiros`,`quantidadeSalas`,`areaExterna`,`piscina`, `churrasqueira`, `cidade`, `reserva`, `valor`.
     * **Métodos:** `cadastrarImovel()`, `atualizarImovel()`, `deletarImovel()`, `listarImoveis()`, `pesquisarImovel()`, `verDisponibilidade()`, `visualizarDetalhes()``visualizarAvaliacoes()`.
 
 * **AVALIACAOCLIENTE:** Representa as avaliações dos imóveis.
