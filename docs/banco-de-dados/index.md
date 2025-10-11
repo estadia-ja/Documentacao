@@ -1,44 +1,48 @@
 ### Modelo Entidade-Relacionamento (ME-R)
 
-#### Identificações das Entidade
+#### Identificações das Entidades
 
-* **USUARIO**
-* **IMOVEL**
-* **RESERVA**
-* **AVALIACAOIMOVEL**
-* **AVALIACAOCLIENTE**
-* **PAGAMENTO**
+* **USER**
+* **PROPERTY**
+* **RESERVE**
+* **PROPERTYVALUATION**
+* **CLIENTVALUATION**
+* **PAYMENT**
 
 #### Descrições das Entidades (Atributos)
 
-* **USUARIO** (<u>idUsuario</u>, nome, email, senha, {telefone}, cpf, imagemUsuario)
-* **IMOVEL** (<u>idImovel</U>, tipo, enderecao(logradouro, numero, bairro, estado, cidade, CEP), descricao, quantidadeQuartos, quantidadeSuites,garagemm, quantidadeBanheiros,quantidadeSalas,areaExterna,piscina, churrasqueira, cidade, reserva, valor, {imagensImovel})
-* **RESERVA** (<u>idReserva</u>, dataInicio, dataFim, status)
-* **AVALIACAOIMOVEL** (<u>idAvaliacaoImovel</u>, notaImovel, comentarioImovel, dataAvaliacaoImovel)
-* **AVALIACAOCLIENTE** (<u>idAvaliacaoCliente</u>, notaCliente, comentarioCliente, dataAvaliacaoCliente)
-* **PAGAMENTO**(<u>idPagamento</u>, valorPagamento, dataPagamento, statusPagamento)
+* **USER** (<u>userId</u>, name, email, password, {phone}, cpf, userImage)
+* **PROPERTY** (<u>propertyId</u>, type, description, numberOfBedroom, numberOfSuites, numberOfGarage, numberOfBathroom, numberOfRoom, outdoor, pool, barbecue, dailyRate, {propertyImages}, endereco(street, number, neighborhood, city, state, CEP))
+* **RESERVE** (<u>reserveId</u>, dateStart, dateEnd, reserveStatus)
+* **PROPERTYVALUATION** (<u>propertyValuationId</u>, noteProperty, commentProperty, datePropertyValuation)
+* **CLIENTVALUATION** (<u>clientValuationId</u>, noteClient, commentClient, dateClientValuation)
+* **PAYMENT** (<u>paymentId</u>, paymentValue, datePayment, paymentStatus)
 
-#### Descrição dos relacionamentos Relacionamentos
+#### Descrição dos Relacionamentos
 
-* **USUARIO tem IMOVEL**
-    * **Descrição:** Esta relação representa a posse de um imóvel.
-    *  **Regra de Negócio:** Um **USUARIO** (no papel de Proprietário) pode ser dono de vários **IMOVEIS**, mas um **IMOVEL** so pode pertencer a um *pertence a um e somente um **USUARIO**.
+* **USER have PROPERTY**
+    * **Descrição:** Esta relação representa a posse de um imóvel por um usuário.
+    * **Regra de Negócio:** Um **USER** pode possuir um ou vários **PROPERTIES** (`1,n`), mas um **PROPERTY** pertence a um e somente um **USER** (`1,1`).
+    * **Cardinalidade:** (1:N)
+
+* **USER makeReserve PROPERTY**
+    * **Descrição:** Esta relação de negócio dá origem à entidade associativa `RESERVE`.
+    * **Regra de Negócio:** Um **USER** pode fazer várias (`0,n`) reservas, e um **PROPERTY** pode ser reservado várias vezes (`0,n`).
     * **Cardinalidade:** (N:N)
-* **USUARIO reserva IMOVEL**
-    * **Descrição:** Esta é a relação de negócio principal que dá origem à entidade `RESERVA`.
-    * **Regra de Negócio:** Um **USUARIO** (no papel de Cliente) pode reservar vários **IMOVEIS** ao longo do tempo, e um mesmo **IMOVEL** pode ser reservado por vários **USUARIO**  (em datas diferentes).
-    * **Cardinalidade:** (N:N)
-* **RESERVA gera AVALIACAOIMOVEL**
-    * **Descrição:** Define que uma avaliação do imóvel só pode existir no contexto de uma reserva.
-    * **Regra de Negócio:** Uma **RESERVA** pode ter no máximo uma **AVALIACAOIMOVEL** (o hóspede pode ou não avaliar). Uma **AVALIACAOIMOVEL** pertence a uma e somente uma **RESERVA**.
-    * **Cardinalidade:** (1:1)
-* **RESERVA avaliaCliente AVALIACAOCLEINTE**
-    * **Descrição:** Define que uma avaliação do cliente (hóspede) só pode existir no contexto de uma reserva.
-    * **Regra de Negócio:** Uma ********RESERVA** pode ter no máximo uma **AVALIACAOCLIENTE** (o proprietário pode ou não avaliar o hóspede). Uma **AVALIACAOCLIENTE** pertence a uma e somente uma **RESERVA**.
-    * **Cardinalidade:** (1:1)
-* **RESERVA realiaza PAGAMENTO**
-    * **Descrição:** Associa um ou mais pagamentos a uma reserva específica.
-    * **Regra de Negócio:** Uma **RESERVA** pode exigir um ou vários **PAGAMENTOS** (por exemplo, um sinal para confirmar e o restante depois). Um **PAGAMENTO** específico refere-se a uma e somente uma **RESERVA**.
+
+* **RESERVE makePropertyValuation PROPERTYVALUATION**
+    * **Descrição:** Define que uma avaliação do imóvel (`PROPERTYVALUATION`) só pode existir no contexto de uma reserva (`RESERVE`).
+    * **Regra de Negócio:** Uma **RESERVE** pode ter no máximo uma **PROPERTYVALUATION** (`0,1`). Uma **PROPERTYVALUATION** pertence a uma e somente uma **RESERVE** (`1,1`).
+    * **Cardinalidade:** (1:0,1)
+
+* **RESERVE makeClientValuation CLIENTVALUATION**
+    * **Descrição:** Define que uma avaliação do cliente (`CLIENTVALUATION`) só pode existir no contexto de uma reserva (`RESERVE`).
+    * **Regra de Negócio:** Uma **RESERVE** pode ter no máximo uma **CLIENTVALUATION** (`0,1`). Uma **CLIENTVALUATION** pertence a uma e somente uma **RESERVE** (`1,1`).
+    * **Cardinalidade:** (1:0,1)
+
+* **USER do PAYMENT**
+    * **Descrição:** Associa um pagamento a um usuário.
+    * **Regra de Negócio (Conforme o Diagrama):** Um **USER** está associado a um e somente um **PAYMENT** (`1,1`). Um **PAYMENT** específico refere-se a um e somente um **USER** (`1,1`).
     * **Cardinalidade:** (1:1)
 
 ### Diagrama de Entidade-Relacionamento(DE-R)
@@ -56,3 +60,4 @@
 |    Data    |   Tipo   |                     Descrição                    |
 | :--------- | :------- | :----------------------------------------------- |
 | 06/10/2025 | **feat** | Adiciona a descrição das entidades, diagrama de entidade-relacionamento, diagrama lógico de dados |
+| 11/10/2025 | **fix** | Altera o nome das entidades, atributos e relações |
