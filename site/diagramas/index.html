@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
       
       
 
@@ -632,7 +632,7 @@
 <li>
 <p><strong>CLIENTE:</strong> Representa os usuário que  busca e aluga imóveis.</p>
 <ul>
-<li><strong>Atributos:</strong> <code>reservas</code>, <code>avaliacao</code>, <code>avaliacaoCliente</code>, <code>pagamento</code>.</li>
+<li><strong>Atributos:</strong> <code>reservas</code>.</li>
 <li><strong>Métodos:</strong> <code>visualizarReservas()</code>.</li>
 </ul>
 </li>
@@ -646,7 +646,7 @@
 <li>
 <p><strong>RESERVA:</strong> Gerencia as reservas de imóveis feitas pelos clientes.</p>
 <ul>
-<li><strong>Atributos:</strong> <code>idReserva</code>, <code>dataInicio</code>, <code>dataFim</code>, <code>pagamento</code>.</li>
+<li><strong>Atributos:</strong> <code>idReserva</code>, <code>dataInicio</code>,<code>imovel</code>, <code>cliente</code>, <code>dataFim</code>, <code>pagamento</code>.</li>
 <li><strong>Métodos:</strong> <code>realizarReserva()</code>, <code>atualizarReserva()</code>, <code>cancelarReserva()</code>.</li>
 </ul>
 </li>
@@ -654,20 +654,27 @@
 <p><strong>PAGAMENTO:</strong> Detalha a transação financeira de uma reserva.</p>
 <ul>
 <li><strong>Atributos:</strong> <code>idPagamento</code>, <code>valor</code>, <code>dataPagamento</code>.</li>
-<li><strong>Métodos:</strong> <code>realizaPagamento()</code>, <code>atualizaValorRacebidoProprietario()</code>, <code>acompanharPagamento()</code>.</li>
+<li><strong>Métodos:</strong> <code>realizaPagamento()</code>, <code>acompanharPagamento()</code>.</li>
 </ul>
 </li>
 <li>
 <p><strong>IMOVEL:</strong> Representa as propriedades disponíveis para aluguel.</p>
 <ul>
-<li><strong>Atributos:</strong> <code>idImovel</code>, <code>tipo</code>, <code>enderecao</code>, <code>descricao</code>, <code>quantidadeQuartos</code>, <code>quantidadeSuites</code>,<code>garagemm</code>, <code>quantidadeBaneiros</code>,<code>quantidadeSalas</code>,<code>areaExterna</code>,<code>piscina</code>, <code>churrasqueira</code>, <code>cidade</code>, <code>reserva</code>, <code>valor</code>, <code>avaliacao</code>.</li>
+<li><strong>Atributos:</strong> <code>idImovel</code>, <code>tipo</code>, <code>enderecao</code>, <code>descricao</code>, <code>quantidadeQuartos</code>, <code>quantidadeSuites</code>,<code>garagemm</code>, <code>quantidadeBanheiros</code>,<code>quantidadeSalas</code>,<code>areaExterna</code>,<code>piscina</code>, <code>churrasqueira</code>, <code>cidade</code>, <code>reserva</code>, <code>valor</code>.</li>
 <li><strong>Métodos:</strong> <code>cadastrarImovel()</code>, <code>atualizarImovel()</code>, <code>deletarImovel()</code>, <code>listarImoveis()</code>, <code>pesquisarImovel()</code>, <code>verDisponibilidade()</code>, <code>visualizarDetalhes()``visualizarAvaliacoes()</code>.</li>
 </ul>
 </li>
 <li>
-<p><strong>AVALIACAO:</strong> Representa as avaliações dos imóveis ou do cliente.</p>
+<p><strong>AVALIACAOCLIENTE:</strong> Representa as avaliações dos imóveis.</p>
 <ul>
-<li><strong>Atributos:</strong> <code>idAvaliacao</code>, <code>cliente</code>, <code>proprietario</code>, <code>nota</code>, <code>comentario</code>, <code>dataAvaliacao</code>.</li>
+<li><strong>Atributos:</strong> <code>idAvaliacaoImovel</code>, <code>cliente</code>, <code>imovel</code>, <code>nota</code>, <code>comentario</code>, <code>dataAvaliacao</code>.</li>
+<li><strong>Métodos:</strong> <code>realizarAvaliacao()</code>, <code>removerAvaliacao()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>AVALIACAOIMOVEL:</strong> Representa as avaliações do cliente.</p>
+<ul>
+<li><strong>Atributos:</strong> <code>idAvaliacaoCliente</code>, <code>cliente</code>, <code>imovel</code>, <code>nota</code>, <code>comentario</code>, <code>dataAvaliacao</code>.</li>
 <li><strong>Métodos:</strong> <code>realizarAvaliacao()</code>, <code>removerAvaliacao()</code>.</li>
 </ul>
 </li>
@@ -676,12 +683,10 @@
 <ul>
 <li><strong>CLIENTE e RESERVA</strong>: Um cliente pode ter múltiplas reservas, mas cada reserva pertence a um único cliente (relação de 1 para N).</li>
 <li><strong>RESERVA e PAGAMENTO</strong>: Cada reserva tem um e somente um pagamento associado (relação de 1 para 1).</li>
-<li><strong>PROPRIETARIO e IMOVEL</strong>: Um proprietário pode ter muitos imóveis, e cada imóvel pertence a um proprietário (relação de 1 para N).</li>
-<li><strong>PROPRIETARIO e AVALIACAO</strong>: Um proprietário pode faze múltiplas avaliações, mas cada avaliação é feitas por um proprietario(relação de 1 para N).</li>
+<li><strong>PROPRIETARIO e IMOVEL</strong>: Um proprietário pode ter muitos imóveis, e cada imóvel pertence a um proprietário (relação de 1 para N).avaliações, mas cada avaliação é feitas por um proprietario(relação de 1 para N).</li>
 <li><strong>IMÓVEL e RESERVA</strong>: Um imóvel pode ser objeto de várias reservas, e cada reserva se refere a um único imóvel (relação de 1 para N).</li>
-<li><strong>CLIENTE e AVALIACAO</strong>: Um cliente pode fazer múltiplas avaliações, mas cada avaliação é feita por um único cliente (relação de 1 para N).</li>
-<li><strong>AVALIACAO e CLIENTE</strong>: Uma avaliação pertence a um cliente, mas um cliente pode ter várias avaliações (relação de 1 para N).</li>
-<li><strong>IMÓVEL e AVALIACAO</strong>: Um imóvel pode receber múltiplas avaliações, mas cada avaliação se refere a um único imóvel (relação de 1 para N).</li>
+<li><strong>RESERVA e AVALIACAOIMOVEL</strong>: Uma reserva pode ser avaliada uma vez e uma avaliação se refere a uma reserva.</li>
+<li><strong>RESERVA e AVALIACAOCLIENTE</strong>: Uma reserva pode ser avaliada uma vez e uma avaliação se refere a uma reserva.</li>
 </ul>
 <h3 id="link-para-o-diagrama">Link para o Diagrama</h3>
 <p>Você pode acessar e editar este diagrama de classes diretamente no Lucidchart através do link abaixo:</p>
@@ -700,6 +705,11 @@
 <td style="text-align: left;">11/09/2025</td>
 <td style="text-align: left;"><strong>feat</strong></td>
 <td style="text-align: left;">Adiciona o diagrama de classes e a sua descrição</td>
+</tr>
+<tr>
+<td style="text-align: left;">04/10/2025</td>
+<td style="text-align: left;"><strong>fix</strong></td>
+<td style="text-align: left;">Corrige as relações entre as classes do diagrama de classes</td>
 </tr>
 </tbody>
 </table>
@@ -754,7 +764,7 @@
       <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
