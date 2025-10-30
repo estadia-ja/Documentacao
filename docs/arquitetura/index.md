@@ -30,19 +30,82 @@ A estrutura de pastas reflete a arquitetura de domínio e ajuda a manter a organ
 
 ```plaintext
     src/
+    ├── clientValuation/
+    │   ├── controller.js
+    │   ├── model.js
+    │   ├── routes.js
+    │   ├── service.js
+    │   └── test/
+    │   │   ├── clientValuation.controller.unit.test.js
+    │   │   ├── clientValuation.integration.unit.test.js
+    │   │   ├── clientValuation.model.unit.test.js
+    │   │   └── clientValuation.service.unit.test.js
     ├── middlewares/
+    │   ├── authMiddleware.js
+    │   ├── clientValuationValidation.js
+    │   ├── paymentValidation.js
+    │   ├── propertyValidation.js
+    │   ├── propertyValuationValidation.js
+    │   ├── reserveValidation.js
     │   └── validation.js
+    ├── payment/
+    │   ├── controller.js
+    │   ├── model.js
+    │   ├── routes.js
+    │   ├── service.js
+    │   └── test/
+    │   │   ├── payment.controller.unit.test.js
+    │   │   ├── payment.integration.unit.test.js
+    │   │   ├── payment.model.unit.test.js
+    │   │   └── payment.service.unit.test.js
+    ├── property/
+    │   ├── controller.js
+    │   ├── model.js
+    │   ├── routes.js
+    │   ├── service.js
+    │   └── test/
+    │   │   ├── property.controller.unit.test.js
+    │   │   ├── property.integration.unit.test.js
+    │   │   ├── property.model.unit.test.js
+    │   │   └── property.service.unit.test.js
+    ├── propertyValuation/
+    │   ├── controller.js
+    │   ├── model.js
+    │   ├── routes.js
+    │   ├── service.js
+    │   └── test/
+    │   │   ├── propertyValuation.controller.unit.test.js
+    │   │   ├── propertyValuation.integration.unit.test.js
+    │   │   ├── propertyValuation.model.unit.test.js
+    │   │   └── propertyValuation.service.unit.test.js
+    ├── reserve/
+    │   ├── controller.js
+    │   ├── model.js
+    │   ├── routes.js
+    │   ├── service.js
+    │   └── test/
+    │   │   ├── reserve.controller.unit.test.js
+    │   │   ├── reserve.integration.unit.test.js
+    │   │   ├── reserve.model.unit.test.js
+    │   │   └── reserve.service.unit.test.js
     ├── user/
     │   ├── controller.js
     │   ├── model.js
     │   ├── routes.js
     │   ├── service.js
     │   └── test/
-    │   │   ├── user.controller.test.js
-    │   │   ├── user.model.test.js
-    │   │   └── user.service.test.js
+    │   │   ├── user.controller.unit.test.js
+    │   │   ├── user.integration.unit.test.js
+    │   │   ├── user.model.unit.test.js
+    │   │   └── user.service.unit.test.js
     ├── validations/
+    │   ├── clientValuationValidation.js
+    │   ├── paymentValidation.js
+    │   ├── propertyValidation.js
+    │   ├── propertyValuationValidation.js
+    │   ├── reserveValidation.js
     │   └── userValidation.js
+    ├── app.js    
     ├── database.js
     ├── index.js
     └── swagger.js
@@ -76,3 +139,4 @@ O fluxo de uma requisição HTTP dentro de um domínio segue a seguinte sequênc
 |    Data    |   Tipo   |                              Descrição                            |
 | :--------- | :------- | :---------------------------------------------------------------- |
 | 22/09/2025 | **feat** | Adiciona a documentação da arquitetuta que o Banckend está usando |
+| 22/09/2025 | **feat** | Atualiza a estrutura de pastas |
