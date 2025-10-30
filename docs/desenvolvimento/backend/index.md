@@ -31,54 +31,6 @@ O stack principal utilizado na maioria dos serviços de backend é:
 
 ---
 
-## Configuração de Ambiente (.env)
-
-Cada serviço de backend (ex: `auth-service`) possui seu próprio arquivo `.env` para configuração e outro para teste.
-
-**Importante:** As variáveis `POSTGGRES_USER`, `POSTGRES_PASSWORD` e `POSTGRES_DB` são geralmente definidas em um arquivo `.env` na **raiz do projeto**, que é lido pelo `docker-compose`. O serviço então as utiliza para construir a `DATABASE_URL`.
-
-Arquivo `.env` para o `auth-service`:
-
-```ini
-    PORT=3000
-    
-    DATABASE_URL="postgresql://USUARIO_POSTGRES:SENHA_POSTGRES@db:5432/NOME_DO_BANCO?schema=public"
-    
-    JWT_SECRET="SUA_CHAVE_SECRETA_AQUI"
-```
-
-Arquivo `.env.test` para o `auth-service`:
-
-```ini
-    PORT=3000
-    
-    DATABASE_URL="postgresql://USUARIO_POSTGRES:SENHA_POSTGRES@db:5432/NOME_DO_BANCO?schema=public"
-    
-    JWT_SECRET="SUA_CHAVE_SECRETA_AQUI"
-```
-
-Arquivo `.env` para a `api`:
-
-```ini
-    PORT=3000
-    
-    DATABASE_URL="postgresql://USUARIO_POSTGRES:SENHA_POSTGRES@db:5432/NOME_DO_BANCO?schema=public"
-    
-    JWT_SECRET="SUA_CHAVE_SECRETA_AQUI"
-```
-
-Arquivo `.env.test` para a `api`:
-
-```ini
-    PORT=3000
-    
-    DATABASE_URL="postgresql://USUARIO_POSTGRES:SENHA_POSTGRES@db:5432/NOME_DO_BANCO?schema=public"
-    
-    JWT_SECRET="SUA_CHAVE_SECRETA_AQUI"
-```
-
----
-
 ## Documentação da API (Swagger)
 
 Graças ao `swagger-ui-express`, a documentação da API de cada serviço é gerada automaticamente e pode ser acessada no navegador em sua respectiva porta (quando o projeto estiver rodando).
