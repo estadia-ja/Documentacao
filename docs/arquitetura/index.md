@@ -139,4 +139,4 @@ O fluxo de uma requisição HTTP dentro de um domínio segue a seguinte sequênc
 |    Data    |   Tipo   |                              Descrição                            |
 | :--------- | :------- | :---------------------------------------------------------------- |
 | 22/09/2025 | **feat** | Adiciona a documentação da arquitetuta que o Banckend está usando |
-| 22/09/2025 | **feat** | Atualiza a estrutura de pastas |
+| 30/10/2025 | **feat** | Atualiza a estrutura de pastas |
