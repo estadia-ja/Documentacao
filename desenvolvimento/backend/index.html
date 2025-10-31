@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#backend" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -368,6 +373,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Backend
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -380,6 +400,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links-dos-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links dos Repositórios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnologias-stack-comum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias (Stack Comum)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-da-api-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentação da API (Swagger)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -456,6 +531,52 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links-dos-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links dos Repositórios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnologias-stack-comum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias (Stack Comum)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-da-api-swagger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentação da API (Swagger)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -471,9 +592,56 @@
 
 
 
-  <h1>Backend</h1>
-
-
+<h1 id="backend">Backend</h1>
+<p>Esta seção detalha as tecnologias e configurações dos serviços de backend do projeto "Estadia Já".</p>
+<p>O backend é composto por múltiplos microsserviços que operam em repositórios separados para garantir a separação de responsabilidades. Os principais serviços são:</p>
+<ul>
+<li><strong>Serviço de Autenticação</strong>: Responsável pelo cadastro, login e gerenciamento de usuários.</li>
+<li><strong>Serviço de Negócios</strong>: Responsável pela lógica principal da aplicação (imóveis, reservas, etc.).</li>
+</ul>
+<hr />
+<h2 id="links-dos-repositorios">Links dos Repositórios</h2>
+<ul>
+<li><strong>Repositório de Autenticação:</strong> <a href="https://github.com/estadia-ja/Autenticacao">Repositório</a></li>
+<li><strong>Repositório de Backend:</strong> <a href="https://github.com/estadia-ja/Backend">Repositório</a></li>
+</ul>
+<hr />
+<h2 id="tecnologias-stack-comum">Tecnologias (Stack Comum)</h2>
+<p>O stack principal utilizado na maioria dos serviços de backend é:</p>
+<ul>
+<li><strong>Runtime:</strong> Node.js (v18-alpine, conforme Dockerfile)</li>
+<li><strong>Framework:</strong> Express.js</li>
+<li><strong>Banco de Dados:</strong> PostgreSQL</li>
+<li><strong>ORM:</strong> Prisma</li>
+<li><strong>Autenticação:</strong> <code>bcrypt</code> / <code>bcryptjs</code>, <code>jsonwebtoken</code></li>
+<li><strong>Validação:</strong> <code>joi</code></li>
+<li><strong>Documentação da API:</strong> <code>swagger-jsdoc</code>, <code>swagger-ui-express</code></li>
+<li><strong>Outros:</strong> <code>cors</code>, <code>dotenv</code>, <code>multer</code></li>
+</ul>
+<hr />
+<h2 id="documentacao-da-api-swagger">Documentação da API (Swagger)</h2>
+<p>Graças ao <code>swagger-ui-express</code>, a documentação da API de cada serviço é gerada automaticamente e pode ser acessada no navegador em sua respectiva porta (quando o projeto estiver rodando).</p>
+<ul>
+<li><strong>Exemplo (auth-service):</strong> <code>http://localhost:3001/docs</code></li>
+<li><strong>Exemplo (property-service):</strong> <code>http://localhost:3000/docs</code> </li>
+</ul>
+<h2 id="historico-de-commits">Histórico de Commits</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">30/10/2025</td>
+<td style="text-align: left;"><strong>feat</strong></td>
+<td style="text-align: left;">Adiciona documentação inicial do Bckend.</td>
+</tr>
+</tbody>
+</table>
 
 
 

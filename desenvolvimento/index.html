@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#visao-geral-desenvolvimento" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -345,6 +350,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -357,6 +377,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-alto-nivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitetura de Alto Nível
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -456,6 +522,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-alto-nivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitetura de Alto Nível
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -471,9 +574,43 @@
 
 
 
-  <h1>Visão Geral</h1>
-
-
+<h1 id="visao-geral-desenvolvimento">Visão Geral (Desenvolvimento)</h1>
+<p>Esta seção é o guia central para qualquer desenvolvedor que queira configurar e rodar o projeto <strong>"Estadia Já"</strong> em sua máquina local.</p>
+<hr />
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<p>Antes de começar, garanta que você tenha as seguintes ferramentas instaladas:</p>
+<ul>
+<li><strong>Git</strong></li>
+<li><strong>Docker</strong></li>
+<li><strong>Docker Compose</strong></li>
+</ul>
+<hr />
+<h2 id="arquitetura-de-alto-nivel">Arquitetura de Alto Nível</h2>
+<p>O projeto é dividido em múltiplos <strong>serviços containerizados</strong> que se comunicam através da rede <code>estadia_ja_network</code>:</p>
+<ol>
+<li><strong>Frontend:</strong> Aplicação Web (React) responsável pela interface do usuário.  </li>
+<li><strong>Backend:</strong> API REST (Node.js/Express) que gerencia a lógica de negócio (ex: propriedades, reservas).  </li>
+<li><strong>Autenticação:</strong> API REST (Node.js/Express) que gerencia o login dos usuários (<code>auth-service</code>).  </li>
+<li><strong>Banco de Dados:</strong> (PostgreSQL) Armazenamento persistente dos dados.</li>
+</ol>
+<p>Um diagrama simples da comunicação:</p>
+<h2 id="historico-de-commits">Histórico de Commits</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">30/10/2025</td>
+<td style="text-align: left;"><strong>feat</strong></td>
+<td style="text-align: left;">Adiciona a visão geral.</td>
+</tr>
+</tbody>
+</table>
 
 
 
