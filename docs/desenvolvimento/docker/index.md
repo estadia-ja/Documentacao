@@ -26,17 +26,34 @@ Você precisa criar os arquivos `.env` em dois locais:
 Crie um arquivo `.env` na raiz deste repositório. Ele é o mais importante, pois define as credenciais do banco de dados que serão usadas por todos.
 
     ```ini
-        # .env (na raiz do repositório Backend)
-        
-        # Credenciais do Banco de Dados Principal
-        POSTGRES_USER=docker
-        POSTGRES_PASSWORD=docker
-        POSTGRES_DB=estadia_ja_db
-        
-        # Credenciais do DBeaver (Cloudbeaver)
-        CB_SERVER_NAME=EstadiaJaDB
+        # Database
+        POSTGRES_USER=postgres
+        POSTGRES_PASSWORD=senha123
+        POSTGRES_DB=estadia_db
+        DATABASE_URL=postgresql://postgres:senha123@db:5432/estadia_db
+
+        # Node App
+        PORT=3000
+        NODE_ENV=development
+
+        # CloudBeaver
+        CB_SERVER_NAME=CloudBeaver
         CB_ADMIN_NAME=admin
         CB_ADMIN_PASSWORD=admin
+
+        JWT_SECRET="sua_chave_secreta_forte_para_desenvolvimento_123"
+    ```
+
+Crie um arquivo `.env.test` na raiz deste repositório. Ele será muito importante para os testes de integração, pois define as credenciais do banco de teste que será usado.
+
+    ```ini
+        #Database
+        DATABASE_URL="postgresql://postgres:senha123@localhost:5434/estadia_test_db"
+        POSTGRES_USER=postgres
+        POSTGRES_PASSWORD=senha123
+        POSTGRES_DB=estadia_test_db
+
+        JWT_SECRET="esta_e_uma_chave_secreta_para_testes_12345"
     ```
 
 **2. No Repositório de Autenticação:**
@@ -44,18 +61,22 @@ Crie um arquivo `.env` na raiz deste repositório. Ele é o mais importante, poi
 Crie um arquivo `.env` na raiz deste repositório. Ele precisa das credenciais do banco (para se conectar) e das suas próprias variáveis.
 
     ```ini
-        # .env (na raiz do repositório Autenticação)
-        
-        # Porta do serviço
-        PORT=3001
-        
-        # Chave secreta para JWT
-        JWT_SECRET=SUA_CHAVE_SECRETA_MUITO_FORTE_AQUI
-        
-        # Credenciais do Banco (devem ser IDÊNTICAS às do .env do Backend)
-        POSTGRES_USER=docker
-        POSTGRES_PASSWORD=docker
-        POSTGRES_DB=estadia_ja_db
+        # Database
+        POSTGRES_USER=postgres
+        POSTGRES_PASSWORD=senha123
+        POSTGRES_DB=estadia_db
+        DATABASE_URL=postgresql://postgres:senha123@db:5432/estadia_db
+
+        # Node App
+        PORT=3000
+        NODE_ENV=development
+
+        # CloudBeaver
+        CB_SERVER_NAME=CloudBeaver
+        CB_ADMIN_NAME=admin
+        CB_ADMIN_PASSWORD=admin
+
+        JWT_SECRET="sua_chave_secreta_forte_para_desenvolvimento_123"
     ```
 
 ### Passo 2: Criar a Rede (Apenas uma vez)
@@ -86,7 +107,7 @@ Com os arquivos `.env` prontos e a rede criada, abra um terminal para cada repos
         # No diretório do repositório Autenticação
         docker compose up -d
     ```
-    *(Isso irá iniciar: `auth-service`)*
+    *(Isso irá iniciar: `auth-service` conectado com o db que o Backend subiu)*
 
 **Terminal 3: Frontend**
 
@@ -111,7 +132,7 @@ Seu ambiente completo está no ar!
 
 As migrações do banco de dados devem ser executadas **dentro** dos containers de backend.
 
-**Importante:** O Backend e a Autenticação têm seus próprios bancos de dados (ou schemas) e, portanto, suas próprias migrações.
+**Importante:** O Backend e a Autenticação têm o mesmo banco de dados (ou shema) e, portanto, você precisa realizar a mesma migração nos dois.
 
 **Para rodar as migrações do Backend Principal:**
 
@@ -156,10 +177,29 @@ Caso queria rodar só os unitários ou só os de integração rode esses comando
 
 **2. Testes do Frontend:**
 
+No Frontend foi implementado os teste end-to-end com selenium e para rodalos rode os comandos
+
+    ```bash
+        node e2e/clientLifeCycle.js
+        node e2e/ownerLifeCycle.js
+    ```
+
 **3. Testes da Autenticação:**
+
+Atualmente o serviço de autenticação só possui testes unitários e para roda-los rode esses comandos:
+
+    ```bash
+        docker compose exec auth-service npm test
+
+        #ou 
+
+        docker compose exec auth-service npm test:coverage
+    ```
+
 
 ## Histórico de Commits
 
 |    Data    |   Tipo   |                              Descrição                            |
 | :--------- | :------- | :---------------------------------------------------------------- |
 | 31/10/2025 | **feat** | Adiciona documentação inicial do Docker. |
+| 24/11/2025 | **feat e fix** | Adiciona documentação dos testes do Front e Autenticação e muda os .env de configuração. |

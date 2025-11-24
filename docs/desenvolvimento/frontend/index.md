@@ -42,11 +42,12 @@ Os testes simulam o comportamento de um usuário real no navegador (cliente ou p
 Para executar os scripts de teste Selenium localmente:
 
 ```bash
-# Instalar dependências de teste
-npm install
+    # Instalar dependências de teste
+    npm install
 
-# Executar suite de testes
-node tests/e2e/run-tests.js
+    # Executar suite de testes
+    node e2e/clientLifeCycle.js
+    node e2e/ownerLifeCycle.js
 ```
 
 ## Histórico de Commits
