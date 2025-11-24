@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -710,34 +710,54 @@
 <p><strong>1. No Repositório Backend (o principal):</strong></p>
 <p>Crie um arquivo <code>.env</code> na raiz deste repositório. Ele é o mais importante, pois define as credenciais do banco de dados que serão usadas por todos.</p>
 <pre><code>```ini
-    # .env (na raiz do repositório Backend)
+    # Database
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=senha123
+    POSTGRES_DB=estadia_db
+    DATABASE_URL=postgresql://postgres:senha123@db:5432/estadia_db
 
-    # Credenciais do Banco de Dados Principal
-    POSTGRES_USER=docker
-    POSTGRES_PASSWORD=docker
-    POSTGRES_DB=estadia_ja_db
+    # Node App
+    PORT=3000
+    NODE_ENV=development
 
-    # Credenciais do DBeaver (Cloudbeaver)
-    CB_SERVER_NAME=EstadiaJaDB
+    # CloudBeaver
+    CB_SERVER_NAME=CloudBeaver
     CB_ADMIN_NAME=admin
     CB_ADMIN_PASSWORD=admin
+
+    JWT_SECRET="sua_chave_secreta_forte_para_desenvolvimento_123"
+```
+</code></pre>
+<p>Crie um arquivo <code>.env.test</code> na raiz deste repositório. Ele será muito importante para os testes de integração, pois define as credenciais do banco de teste que será usado.</p>
+<pre><code>```ini
+    #Database
+    DATABASE_URL="postgresql://postgres:senha123@localhost:5434/estadia_test_db"
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=senha123
+    POSTGRES_DB=estadia_test_db
+
+    JWT_SECRET="esta_e_uma_chave_secreta_para_testes_12345"
 ```
 </code></pre>
 <p><strong>2. No Repositório de Autenticação:</strong></p>
 <p>Crie um arquivo <code>.env</code> na raiz deste repositório. Ele precisa das credenciais do banco (para se conectar) e das suas próprias variáveis.</p>
 <pre><code>```ini
-    # .env (na raiz do repositório Autenticação)
+    # Database
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=senha123
+    POSTGRES_DB=estadia_db
+    DATABASE_URL=postgresql://postgres:senha123@db:5432/estadia_db
 
-    # Porta do serviço
-    PORT=3001
+    # Node App
+    PORT=3000
+    NODE_ENV=development
 
-    # Chave secreta para JWT
-    JWT_SECRET=SUA_CHAVE_SECRETA_MUITO_FORTE_AQUI
+    # CloudBeaver
+    CB_SERVER_NAME=CloudBeaver
+    CB_ADMIN_NAME=admin
+    CB_ADMIN_PASSWORD=admin
 
-    # Credenciais do Banco (devem ser IDÊNTICAS às do .env do Backend)
-    POSTGRES_USER=docker
-    POSTGRES_PASSWORD=docker
-    POSTGRES_DB=estadia_ja_db
+    JWT_SECRET="sua_chave_secreta_forte_para_desenvolvimento_123"
 ```
 </code></pre>
 <h3 id="passo-2-criar-a-rede-apenas-uma-vez">Passo 2: Criar a Rede (Apenas uma vez)</h3>
@@ -762,7 +782,7 @@
     # No diretório do repositório Autenticação
     docker compose up -d
 ```
-*(Isso irá iniciar: `auth-service`)*
+*(Isso irá iniciar: `auth-service` conectado com o db que o Backend subiu)*
 </code></pre>
 <p><strong>Terminal 3: Frontend</strong></p>
 <pre><code>```bash
@@ -782,7 +802,7 @@
 <hr />
 <h2 id="rodando-migrations-prisma">Rodando Migrations (Prisma)</h2>
 <p>As migrações do banco de dados devem ser executadas <strong>dentro</strong> dos containers de backend.</p>
-<p><strong>Importante:</strong> O Backend e a Autenticação têm seus próprios bancos de dados (ou schemas) e, portanto, suas próprias migrações.</p>
+<p><strong>Importante:</strong> O Backend e a Autenticação têm o mesmo banco de dados (ou shema) e, portanto, você precisa realizar a mesma migração nos dois.</p>
 <p><strong>Para rodar as migrações do Backend Principal:</strong></p>
 <pre><code>```bash
     # No diretório do repositório Backend
@@ -816,7 +836,22 @@
 ```
 </code></pre>
 <p><strong>2. Testes do Frontend:</strong></p>
+<p>No Frontend foi implementado os teste end-to-end com selenium e para rodalos rode os comandos</p>
+<pre><code>```bash
+    node e2e/clientLifeCycle.js
+    node e2e/ownerLifeCycle.js
+```
+</code></pre>
 <p><strong>3. Testes da Autenticação:</strong></p>
+<p>Atualmente o serviço de autenticação só possui testes unitários e para roda-los rode esses comandos:</p>
+<pre><code>```bash
+    docker compose exec auth-service npm test
+
+    #ou
+
+    docker compose exec auth-service npm test:coverage
+```
+</code></pre>
 <h2 id="historico-de-commits">Histórico de Commits</h2>
 <table>
 <thead>
@@ -831,6 +866,11 @@
 <td style="text-align: left;">31/10/2025</td>
 <td style="text-align: left;"><strong>feat</strong></td>
 <td style="text-align: left;">Adiciona documentação inicial do Docker.</td>
+</tr>
+<tr>
+<td style="text-align: left;">24/11/2025</td>
+<td style="text-align: left;"><strong>feat e fix</strong></td>
+<td style="text-align: left;">Adiciona documentação dos testes do Front e Autenticação e muda os .env de configuração.</td>
 </tr>
 </tbody>
 </table>
@@ -885,7 +925,7 @@
       <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

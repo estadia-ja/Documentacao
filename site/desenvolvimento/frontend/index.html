@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -60,6 +60,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#frontend" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -391,6 +396,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -403,6 +423,85 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links-dos-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links dos Repositórios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnologias-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias (Stack)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testes-end-to-end-e2e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testes End-to-End (E2E)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testes End-to-End (E2E)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-que-e-testado" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que é testado?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-rodar-os-testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como rodar os testes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -456,6 +555,76 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#links-dos-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links dos Repositórios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnologias-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias (Stack)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testes-end-to-end-e2e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testes End-to-End (E2E)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testes End-to-End (E2E)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-que-e-testado" class="md-nav__link">
+    <span class="md-ellipsis">
+      O que é testado?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-rodar-os-testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como rodar os testes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Commits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -471,9 +640,62 @@
 
 
 
-  <h1>Frontend</h1>
+<h1 id="frontend">Frontend</h1>
+<p>Esta seção detalha as tecnologias, configurações e a estrutura da interface web do projeto "Estadia Já".</p>
+<p>O frontend é uma aplicação web estruturada em múltiplas rotas, desenvolvida para atender diferentes perfis de usuários (locatários e proprietários), garantindo uma navegação clara entre a busca, visualização e gerenciamento de reservas.</p>
+<hr />
+<h2 id="links-dos-repositorios">Links dos Repositórios</h2>
+<ul>
+<li><strong>Repositório de Frontend:</strong> <a href="https://github.com/estadia-ja/Frontend">Repositório</a></li>
+</ul>
+<hr />
+<h2 id="tecnologias-stack">Tecnologias (Stack)</h2>
+<p>As principais ferramentas e bibliotecas utilizadas no desenvolvimento da interface são:</p>
+<ul>
+<li><strong>Biblioteca Principal:</strong> React </li>
+<li><strong>Estilização:</strong> Tailwind CSS</li>
+<li><strong>Roteamento:</strong> React Router DOM</li>
+<li><strong>Gerenciamento de Estado:</strong> Context API / Hooks</li>
+<li><strong>Consumo de API:</strong> Axios</li>
+<li><strong>Ícones:</strong> Lucide React</li>
+<li><strong>Testes E2E:</strong> Selenium WebDriver (JavaScript/Node)</li>
+<li><strong>Build Tool:</strong> Vite</li>
+</ul>
+<hr />
+<h2 id="testes-end-to-end-e2e">Testes End-to-End (E2E)</h2>
+<p>Para garantir a qualidade do fluxo do usuário, utilizamos testes automatizados de ponta a ponta com <strong>Selenium</strong>.</p>
+<h3 id="o-que-e-testado">O que é testado?</h3>
+<p>Os testes simulam o comportamento de um usuário real no navegador (cliente ou proprietário), cobrindo fluxos críticos como: <br>
+1. Login e Autenticação.<br>
+2. Busca e filtro de imóveis.<br>
+3. Fluxo de reserva.<br>
+4. Cadastro de imóvel</p>
+<h3 id="como-rodar-os-testes">Como rodar os testes</h3>
+<p>Para executar os scripts de teste Selenium localmente:</p>
+<pre><code class="language-bash">    # Instalar dependências de teste
+    npm install
 
-
+    # Executar suite de testes
+    node e2e/clientLifeCycle.js
+    node e2e/ownerLifeCycle.js
+</code></pre>
+<h2 id="historico-de-commits">Histórico de Commits</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">24/11/2025</td>
+<td style="text-align: left;"><strong>feat</strong></td>
+<td style="text-align: left;">Adiciona documentação inicial do Frontend.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -525,7 +747,7 @@
       <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>
